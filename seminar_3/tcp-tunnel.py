@@ -1,3 +1,5 @@
+# TCP TUNNEL - FORWARDING FROM A PORT TO ANOTHER
+
 import socket
 import threading
 import sys
@@ -16,14 +18,17 @@ def handle_client(client_socket, client):
           break
       print(data)
       client_socket.sendall(data)
+      dest_res = client_socket.recv(1024)
+      if dest_res:
+        client.sendall(dest_res)
 
 def process_connection(server_socket, client_socket):
   while is_running:
     client, addr = server_socket.accept()
     print(f'{addr} has connected')
+    # client that connects to the tunnel entrypoint
     client_thread = threading.Thread(target=handle_client, args=(client_socket, client))
     client_thread.start()
-    # client_thread.join()
 
 tunnels = []
 
@@ -58,8 +63,7 @@ def main():
         print(tunnels)
       else:
         (_, source_port, destination_port) = command.strip().split(' ')
-        print('connecting ', source_port, ' to ', destination_port)
-        tunnel_thread = threading.Thread(target=tunnel, args=(int(source_port), int(destination_port), ))
+        tunnel_thread = threading.Thread(target=tunnel, args=(int(source_port), int(destination_port)))
         tunnel_thread.start()
         tunnels.append((source_port, destination_port))
 

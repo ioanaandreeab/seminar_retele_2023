@@ -1,8 +1,10 @@
+# FULL EXAMPLE OF TCP SERVER WITH THREADS
+
 import socket
 import threading
 
 HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
-PORT = 3333  # Port to listen on (non-privileged ports are > 1023)
+PORT = 12345  # Port to listen on (non-privileged ports are > 1023)
 
 is_running = True
 
@@ -11,8 +13,11 @@ def handle_client(client):
     while True:
       if client == None:
         break
+      host, port = client.getpeername()
       data = client.recv(1024)
+      print(f'host {host}, port {port} sent: {data}')
       if not data:
+          print(f'bye {host}, port {port}')
           break
       client.sendall(data.capitalize())
 
