@@ -18,7 +18,7 @@
 - IP multicast - este folosit protocolul IP pentru trimiterea datelor
 - UDP multicast - este folosit protocolul UDP pentru trimiterea datelor
 
-Deși UDP nu este considerat a fi un protocol de încredere, deoarece nu există garanția livrării mesajelor, UDP multicast este rapid, lightweight și alegerea făcută în, spre exemplu, multe scenarii de streaming (Netflix utilizează UDP multicast pentru spectatorii unui anumit serial ori film). Un alt scenariu în care ar putea fi folosit multicast este o conferință online, ce ar fi transmisă către toți utilizatorii care vor să o urmărească.
+Deși UDP nu este considerat a fi un protocol de încredere, deoarece nu există garanția livrării mesajelor, UDP multicast este rapid, lightweight și alegerea făcută în, spre exemplu, multe scenarii de streaming, spre exemplu Netflix ori o conferință online, ce ar fi transmisă către toți utilizatorii care vor să o urmărească.
 
 **Tunneling** - redirecționarea traficului de la un port ocupat către un port disponibil; acest proces permite conexiunilor făcute către un port local (pe desktopul curent) să fie transmise către un computer remote printr-un canal securizat.
 
