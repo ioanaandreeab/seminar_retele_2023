@@ -7,6 +7,9 @@ from watchdog.events import FileSystemEventHandler
 
 SOURCE_DIRECTORY = './temp'
 
+# watchdog handlers should implement the 4 methods for transformations:
+# on_created, on_modified, on_deleted, on_changed
+# we implement on_created & on_modified
 class MonitorFolder(FileSystemEventHandler):    
     def on_created(self, event):
          print(event.src_path, event.event_type)
@@ -23,6 +26,7 @@ def file_watch(directory):
     observer = Observer()
     observer.schedule(event_handler, directory, recursive=True)
     observer.start()
+    observer.join()
 
 def send_multicast(filename):
     MCAST_GROUP = '224.0.0.1'
@@ -33,6 +37,7 @@ def send_multicast(filename):
 
 class SyncTCPHandler(socketserver.BaseRequestHandler):
     def handle(self):
+        # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print('sending ', self.data.decode())
         with open('temp/' + self.data.decode(), 'rb') as f:

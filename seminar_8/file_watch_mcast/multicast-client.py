@@ -10,6 +10,7 @@ FILE_PORT = 12345
 
 def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind((MCAST_GROUP, MCAST_PORT))
 
     group = socket.inet_aton(MCAST_GROUP)

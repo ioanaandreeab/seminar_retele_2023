@@ -15,6 +15,7 @@ if __name__ == "__main__":
     observer.start()
     try:
         while True:
+            # add delay in the execution of a program
             time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
