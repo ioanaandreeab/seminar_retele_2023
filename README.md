@@ -1,6 +1,6 @@
 ## Ultimul seminar:
 
-[Seminar 7 - Autentificare, SSL, TLS](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_7)
+[Seminar 8 - File watch multicast](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_8)
 
 ## Seminare:
 
@@ -19,3 +19,5 @@
 [Seminar 7 - Autentificare, SSL, TLS](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_7)
 
 [Seminar 8 - File watch multicast](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_8)
+
+[Seminar 9 - HTTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_9)
