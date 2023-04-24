@@ -25,7 +25,7 @@ def main():
             s.sendall(filename.encode('utf-8'))
             data = s.recv(1024)
             print(data)
-            with open(DEST_FOLDER + '/' + filename, 'wb') as f:
+            with open(DEST_FOLDER + '\\' + filename, 'wb') as f:
                 f.write(data)
 
 if __name__ == '__main__':

@@ -5,7 +5,7 @@ import socket
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-SOURCE_DIRECTORY = './temp'
+SOURCE_DIRECTORY = 'temp'
 
 # watchdog handlers should implement the 4 methods for transformations:
 # on_created, on_modified, on_deleted, on_changed
@@ -13,13 +13,13 @@ SOURCE_DIRECTORY = './temp'
 class MonitorFolder(FileSystemEventHandler):    
     def on_created(self, event):
          print(event.src_path, event.event_type)
-         if (event.src_path.split('/')[-1] != 'temp'):
-            send_multicast(event.src_path.split('/')[-1])
+         if (event.src_path.split('\\')[-1] != 'temp'):
+            send_multicast(event.src_path.split('\\')[-1])
    
     def on_modified(self, event):
         print(event.src_path, event.event_type)
-        if (event.src_path.split('/')[-1] != 'temp'):
-            send_multicast(event.src_path.split('/')[-1])
+        if (event.src_path.split('\\')[-1] != 'temp'):
+            send_multicast(event.src_path.split('\\')[-1])
 
 def file_watch(directory):
     event_handler=MonitorFolder()
@@ -40,7 +40,7 @@ class SyncTCPHandler(socketserver.BaseRequestHandler):
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print('sending ', self.data.decode())
-        with open('temp/' + self.data.decode(), 'rb') as f:
+        with open('temp\\' + self.data.decode(), 'rb') as f:
             self.request.sendall(f.read())
 
 def _main():
