@@ -10,7 +10,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 # allows multiple sockets to be bound to this same (addr, port) combination at once, i.e. you can run multiple copies of your program at once, or in quick succession
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 # socket is bound to a port, listen ONLY to MCAST_GRP
-sock.bind((MCAST_GRP, MCAST_PORT))
+sock.bind(('', MCAST_PORT))
 # 8-byte packed representation of the multicast group address followed by the network interface on which the server should listen for the traffic, identified by its IP address
 # in this case, the receiver listens on all interfaces using INADDR_ANY
 # inet_aton() converts an IPv4 address from the dotted-quad string format to 32-bit packed binary format
