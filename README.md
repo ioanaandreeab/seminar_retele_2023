@@ -1,6 +1,6 @@
 ## Ultimul seminar:
 
-[Seminar 8 - File watch multicast](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_8)
+[Seminar 11 - FTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_11)
 
 ## Seminare:
 
@@ -21,3 +21,7 @@
 [Seminar 8 - File watch multicast](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_8)
 
 [Seminar 9 - HTTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_9)
+
+[Seminar 10 - lucrare](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_10)
+
+[Seminar 11 - FTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_11)
