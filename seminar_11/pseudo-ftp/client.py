@@ -1,17 +1,15 @@
-#biclient seed
 import socket
 import threading
-import struct
 
 HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 3333  # The port used by the server
-# LOCAL_PORT = 3334
-LOCAL_STORAGE = './client-temp'
+
+LOCAL_STORAGE = '.\\client-temp'
 BUFFER_SIZE = 1024
 
 def active_get(command_socket, command):
 	_, filename = command.strip().split(' ')
-	with open(f'{LOCAL_STORAGE}/{filename}', 'wb') as f:
+	with open(f'{LOCAL_STORAGE}\\{filename}', 'wb') as f:
 		temp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		temp_server.bind(('', 0))
 		temp_server.listen()
@@ -34,7 +32,7 @@ def active_get(command_socket, command):
 
 def active_put(command_socket, command):
 	_, filename = command.strip().split(' ')
-	with open(f'{LOCAL_STORAGE}/{filename}', 'rb') as f:
+	with open(f'{LOCAL_STORAGE}\\{filename}', 'rb') as f:
 		content = f.read()
 		content_size = len(content)
 		temp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -49,7 +47,7 @@ def active_put(command_socket, command):
 
 def passive_get(command_socket, command):
 		_, filename = command.strip().split(' ')
-		with open(f'{LOCAL_STORAGE}/{filename}', 'wb') as f:
+		with open(f'{LOCAL_STORAGE}\\{filename}', 'wb') as f:
 			command_socket.send(command.strip().encode('utf-8'))
 			data = command_socket.recv(1024)
 			host = command_socket.getpeername()[0]

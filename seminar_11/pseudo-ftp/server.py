@@ -1,21 +1,16 @@
-# biserver seed
 import socket
 import threading
-import os
-import struct
-import io
 
 HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
 PORT = 3333  # Port to listen on (non-privileged ports are > 1023)
 
-FILE_ROOT = './temp'
+FILE_ROOT = '.\\temp'
 BUFFER_SIZE = 1024
 is_running = True
 
 def process_command(client, request):
 	command_items = request.decode('utf-8').strip().split(' ')
 	command_mappings = {
-		'list': process_list,
 		'active_get': active_get,
 		'active_put': active_put,
 		'passive_get': passive_get,
@@ -27,16 +22,12 @@ def process_command(client, request):
 		else:
 			print(command_items)
 
-def process_list(client, command_items):
-	files = os.listdir(FILE_ROOT)
-	return '\n'.join(files)
-
 def active_get(client, command_items):
 	if len(command_items) < 3:
 		client.sendall(b'not enough params')
 	else:
 		_, filename, port = command_items
-		with open(f'{FILE_ROOT}/{filename}', 'rb') as f:
+		with open(f'{FILE_ROOT}\\{filename}', 'rb') as f:
 			content = f.read()
 			content_size = len(content)
 			host = client.getpeername()[0]
@@ -52,7 +43,7 @@ def active_put(client, command_items):
 		client.sendall(b'not enough params')
 	else:
 		_, filename, port = command_items
-		with open(f'{FILE_ROOT}/{filename}', 'wb') as f:
+		with open(f'{FILE_ROOT}\\{filename}', 'wb') as f:
 			host = client.getpeername()[0]
 			port = int(port)
 			with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as file_socket:
@@ -72,7 +63,7 @@ def active_put(client, command_items):
 
 def passive_put(client, command_items):
 	_, filename = command_items
-	with open(f'{FILE_ROOT}/{filename}', 'wb') as f:
+	with open(f'{FILE_ROOT}\\{filename}', 'wb') as f:
 		temp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		temp_server.bind(('', 0))
 		temp_server.listen()
@@ -90,13 +81,12 @@ def passive_put(client, command_items):
 				binary_data = data
 				full_data = full_data + binary_data
 				remaining = remaining - len(binary_data)
-		# print(f'finished receiving {filename}')
 		f.write(full_data)
 	temp_server.close()
 
 def passive_get(client, command_items):
 	_, filename = command_items
-	with open(f'{FILE_ROOT}/{filename}', 'rb') as f:
+	with open(f'{FILE_ROOT}\\{filename}', 'rb') as f:
 		content = f.read()
 		content_size = len(content)
 		temp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
