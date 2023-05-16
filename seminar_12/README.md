@@ -3,6 +3,7 @@
 ## Conținut
 
 - XML-RPC
+- JSON-RPC
 
 ---
 
@@ -17,3 +18,16 @@
   - serverul primește cererea, execută metoda corespunzătoare și returnează rezultatul înapoi către client (răspunsul este, de asemenea, formatat în XML)
 
 Un avantaj al XML-RPC este faptul că este un protocol simplu și ușor de implementat, făcându-l potrivit pentru interacțiunea între diferite tehnologii și platforme. Cu toate acestea, XML-RPC poate avea o performanță mai scăzută în comparație cu alte protocoale mai moderne, cum ar fi JSON-RPC sau gRPC.
+
+În cazul **JSON-RPC**, procesul este similar, un request către server având 3 componente:
+
+- method -> numele funcției ce va fi apelată pe server
+- params -> argumentele ce vor fi pasate funcției apelate
+- id -> string ori număr ce servește drept referință pentru răspunsul serverului
+
+Serverul, odată ce invocă funcția, trimite un răspuns format din:
+
+- rezultat/eroare
+- id -> corespunzător cererii căreia îi răspunde
+
+![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*w6NQUXL3Q5kiQcbCz1PpOg.png)
