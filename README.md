@@ -25,3 +25,5 @@
 [Seminar 10 - lucrare](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_10)
 
 [Seminar 11 - FTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_11)
+
+[Seminar 12 - XML-RPC](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_12)
