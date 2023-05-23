@@ -43,5 +43,5 @@ _WebSockets_ = protocol de comunicare bidirecțională în timp real, care permi
    - este scris un consumer care acceptă conexiuni de tip WebSocket la o anumită rută și preia orice mesaj primește, transmițându-l către același WebSocket
    - astfel mesajele sunt trimise către toți clienții conectați la acel WebSocket
 3. _port forwarding utilizând **ngrok**_
-   - aplicația de tip chat realizată la punctul 2 poate fi expusă pe un URL extern pentru testare prin intermediul conceptului de _port forwnarding_
+   - aplicația de tip chat realizată la punctul 2 poate fi expusă pe un URL extern pentru testare prin intermediul conceptului de _port forwarding_
    - în acest sens, traficul de pe portul _8000_, care este cel pe care aplicația rulează, este redirecționat către o adresă externa random alocată de utilitarul ngrok; cât timp procesul este pornit, aplicația este accesibilă la acel URL
