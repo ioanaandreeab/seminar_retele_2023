@@ -1,6 +1,6 @@
 ## Ultimul seminar:
 
-[Seminar 11 - FTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_11)
+[Seminar 12 - XML-RPC](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_12)
 
 ## Seminare:
 
@@ -27,3 +27,5 @@
 [Seminar 11 - FTP](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_11)
 
 [Seminar 12 - XML-RPC](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_12)
+
+[Seminar 13 - Aplicații practice cu concepte de networking](https://github.com/ioanaandreeab/seminar_retele_2023/tree/main/seminar_13)
